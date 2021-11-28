@@ -1,0 +1,36 @@
+[versions]
+android-gradle = '7.0.3'
+detekt = '1.18.1'
+gatling = '3.7.1'
+kotlin = '1.6.0'
+pitest = '1.7.0'
+sonar = '3.3'
+spring = '5.3.13'
+spring-boot = '2.5.7'
+spring-dependency-mgmt = '1.0.11.RELEASE'
+
+[plugins]
+detekt = { id = 'io.gitlab.arturbosch.detekt', version.ref = 'detekt' }
+dokka = { id = 'org.jetbrains.dokka', version.ref = 'kotlin' }
+kotlin = { id = 'org.jetbrains.kotlin.jvm', version.ref = 'kotlin' }
+pitest = { id = "info.solidsoft.pitest", version.ref = 'pitest' }
+
+[libraries]
+android-gradle = { group = 'com.android.tools.build', name = 'gradle', version.ref = 'android-gradle' }
+detekt = { group = 'io.gitlab.arturbosch.detekt', name = 'detekt-gradle-plugin', version.ref = 'detekt' }
+dokka = { group = 'org.jetbrains.dokka', name = 'dokka-gradle-plugin', version.ref = 'kotlin' }
+gatling = { group = 'io.gatling.gradle', name = 'io.gatling.gradle.gradle.plugin', version.ref = 'gatling' }
+kotlin-allopen = { group = 'org.jetbrains.kotlin', name = 'kotlin-allopen', version.ref = 'kotlin' }
+kotlin-gradle-plugin = { group = 'org.jetbrains.kotlin', name = 'kotlin-gradle-plugin', version.ref = 'kotlin' }
+kotlin-test = { group = 'org.jetbrains.kotlin', name = 'kotlin-test' }
+kotlin-test-junit = { group = 'org.jetbrains.kotlin', name = 'kotlin-test-junit' }
+pitest = { group = 'info.solidsoft.gradle.pitest', name = 'gradle-pitest-plugin', version.ref = 'pitest' }
+sonar = { group = 'org.sonarsource.scanner.gradle', name = 'sonarqube-gradle-plugin', version.ref = 'sonar' }
+spring-boot-plugin = { group = 'org.springframework.boot', name = 'spring-boot-gradle-plugin', version.ref = 'spring-boot' }
+spring-dependency-mgmt = { group = 'io.spring.gradle', name = 'dependency-management-plugin', version.ref = 'spring-dependency-mgmt' }
+spring-context = { group = 'org.springframework', name = 'spring-context', version.ref = 'spring' }
+spring-web = { group = 'org.springframework', name = 'spring-web', version.ref = 'spring' }
+
+[bundles]
+spring = ['spring-context', 'spring-web']
+test = ['kotlin-test', 'kotlin-test-junit']

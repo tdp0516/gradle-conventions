@@ -1,0 +1,9 @@
+complexity:
+  LongParameterList:
+    ignoreDataClasses: true
+
+style:
+  ForbiddenComment:
+    active: false
+  UnusedImports: 
+    active: true
