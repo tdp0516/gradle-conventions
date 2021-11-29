@@ -31,11 +31,11 @@ jobs:
         run: chmod +x ./gradlew
 
       - name: Build and upload artifacts
-        with:
+        env:
           artifactory_url: ${{ secrets.ARTIFACTORY_URL }}
           artifactory_user: ${{ secrets.ARTIFACTORY_USER }}
           artifactory_api_key: ${{ secrets.ARTIFACTORY_API_KEY }}
-        run: ./gradlew build artifactoryPublish -PartifactoryUrl=artifactory_url -PartifactoryUser=artifactory_user -PartifactoryApiKey=artifactory_api_key
+        run: ./gradlew build artifactoryPublish -PartifactoryUrl=$artifactory_url -PartifactoryUser=$artifactory_user -PartifactoryApiKey=$artifactory_api_key
         
       # TODO dokkaJavadoc is failing due to out of memory issues
       # TODO dokkaGfm is failing in github action due to daemon issues
