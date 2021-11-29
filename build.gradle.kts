@@ -1,8 +1,19 @@
 
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath(libs.jfrog.buildinfo)
+    }
+}
+
 plugins {
     `java-gradle-plugin`
     `java-test-fixtures`
     `maven-publish`
+    id("com.jfrog.artifactory") version "4.13.0"
     alias(libs.plugins.detekt)
     alias(libs.plugins.dokka)
     alias(libs.plugins.kotlin)
@@ -86,4 +97,19 @@ pitest {
     timestampedReports.set(false)
     enableDefaultIncrementalAnalysis.set(true)
     useClasspathFile.set(true)
+}
+
+artifactory {
+    setContextUrl(project.properties["artifactoryUrl"])
+    publish(delegateClosureOf<org.jfrog.gradle.plugin.artifactory.dsl.PublisherConfig> {
+        repository(delegateClosureOf<org.jfrog.gradle.plugin.artifactory.dsl.DoubleDelegateWrapper> {
+            setProperty("repoKey", "default-maven-local")
+            setProperty("username", project.properties["artifactoryUser"])
+            setProperty("password", project.properties["artifactoryApiKey"])
+            setProperty("maven", true)
+        })
+        defaults(delegateClosureOf<groovy.lang.GroovyObject> {
+            invokeMethod("publications", publishing.publications.names.toTypedArray())
+        })
+    })
 }
