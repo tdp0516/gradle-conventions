@@ -30,18 +30,15 @@ jobs:
       - name: Make the gradle wrapper executable
         run: chmod +x ./gradlew
 
-      - name: Build and upload artifacts
+      # TODO dokkaJavadoc is failing due to out of memory issues
+      # TODO dokkaGfm is failing in github action due to daemon issues
+      # TODO dokkaJekyll is failing in github action due to out of memory issues
+      - name: Build, upload artifacts, and generate KDoc
         env:
           artifactory_url: ${{ secrets.ARTIFACTORY_URL }}
           artifactory_user: ${{ secrets.ARTIFACTORY_USER }}
           artifactory_api_key: ${{ secrets.ARTIFACTORY_API_KEY }}
-        run: ./gradlew build artifactoryPublish -DartifactoryUrl=$artifactory_url -DartifactoryUser=$artifactory_user -DartifactoryApiKey=$artifactory_api_key
-        
-      # TODO dokkaJavadoc is failing due to out of memory issues
-      # TODO dokkaGfm is failing in github action due to daemon issues
-      # TODO dokkaJekyll is failing in github action due to out of memory issues
-      - name: Generate KDoc
-        run: ./gradlew dokkaHtml
+        run: ./gradlew build artifactoryPublish dokkaHtml -DartifactoryUrl=$artifactory_url -DartifactoryUser=$artifactory_user -DartifactoryApiKey=$artifactory_api_key
         
       - name: Deploy to Github Pages
         uses: JamesIves/github-pages-deploy-action@4.1.7
