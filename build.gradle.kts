@@ -91,12 +91,12 @@ pitest {
 }
 
 artifactory {
-    setContextUrl(project.properties["artifactoryUrl"])
+    setContextUrl(System.getProperties()["artifactoryUrl"])
     publish(delegateClosureOf<org.jfrog.gradle.plugin.artifactory.dsl.PublisherConfig> {
         repository(delegateClosureOf<org.jfrog.gradle.plugin.artifactory.dsl.DoubleDelegateWrapper> {
             setProperty("repoKey", "default-maven-local")
-            setProperty("username", project.properties["artifactoryUser"])
-            setProperty("password", project.properties["artifactoryApiKey"])
+            setProperty("username", System.getProperties()["artifactoryUser"])
+            setProperty("password", System.getProperties()["artifactoryApiKey"])
             setProperty("maven", true)
         })
 
