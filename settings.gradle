@@ -12,7 +12,7 @@ dependencyResolutionManagement {
         // TODO Refactor this so the dummy defaults aren't necessary
         mavenLocal()
         maven {
-            url = System.properties['artifactoryUrl'] ?: 'https://localhost:8080'
+            url = System.properties['artifactoryUrl'] + '/default-maven-local' ?: 'https://localhost:8080'
 
             credentials {
                 username = System.properties['artifactoryUser'] ?: ''
@@ -23,7 +23,7 @@ dependencyResolutionManagement {
 
     versionCatalogs {
         libs {
-            from("com.tpero.gradle:gradle-version-catalogs:0.0")
+            from('com.tpero.gradle:gradle-version-catalogs:0.0')
         }
     }
 }
