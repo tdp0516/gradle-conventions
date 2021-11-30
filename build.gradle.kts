@@ -1,19 +1,9 @@
 
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-
-    dependencies {
-        classpath(libs.jfrog.buildinfo)
-    }
-}
-
 plugins {
     `java-gradle-plugin`
     `java-test-fixtures`
     `maven-publish`
-    id("com.jfrog.artifactory") version "4.13.0"
+    alias(libs.plugins.jfrog)
     alias(libs.plugins.detekt)
     alias(libs.plugins.dokka)
     alias(libs.plugins.kotlin)
@@ -39,6 +29,7 @@ java {
 }
 
 dependencies {
+    implementation(libs.commons.lang)
     implementation(libs.bundles.spring)
 
     // Dependencies needed for applying other plugins
@@ -108,6 +99,7 @@ artifactory {
             setProperty("password", project.properties["artifactoryApiKey"])
             setProperty("maven", true)
         })
+
         defaults(delegateClosureOf<groovy.lang.GroovyObject> {
             invokeMethod("publications", publishing.publications.names.toTypedArray())
         })

@@ -17,11 +17,11 @@ Custom Gradle Plugins for use across my projects
 
 `<gradlew.bat|.gradlew publishToMavenLocal`
 
-Documentation
+## Documentation
 
 KDocs can be viewed, up-to-date with main, [here](https://tdp0516.github.io/gradle-plugins/html/index.html)
 
-What plugins are available?
+## What plugins are available?
 
 1. [jvm-quality](https://tdp0516.github.io/gradle-plugins/html/gradle-plugins/com.tpero.gradle.jvm/-jvm-quality-plugin/index.html)
 
