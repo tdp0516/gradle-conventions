@@ -30,13 +30,15 @@ KDocs can be viewed, up-to-date with main, [here](https://tdp0516.github.io/grad
 
 1. [jvm-quality](https://tdp0516.github.io/gradle-conventions/html/gradle-conventions/com.tpero.gradle.jvm/-jvm-quality-plugin/index.html)
 
-1. [kotlin-android](https://tdp0516.github.io/gradle-conventions/html/gradle-conventions/com.tpero.gradle.kotlin/-kotlin-android-plugin/index.html)
+1. [android](https://tdp0516.github.io/gradle-conventions/html/gradle-conventions/com.tpero.gradle.kotlin/-android-plugin/index.html)
 
-1. [kotlin-lib](https://tdp0516.github.io/gradle-conventions/html/gradle-conventions/com.tpero.gradle.kotlin/-kotlin-lib-plugin/index.html)
+1. [jvm-lib](https://tdp0516.github.io/gradle-conventions/html/gradle-conventions/com.tpero.gradle.kotlin/-jvm-lib-plugin/index.html)
 
-1. [kotlin-quality](https://tdp0516.github.io/gradle-conventions/html/gradle-conventions/com.tpero.gradle.kotlin/-kotlin-quality-plugin/index.html)
+1. [jvm-quality](https://tdp0516.github.io/gradle-conventions/html/gradle-conventions/com.tpero.gradle.kotlin/-jvm-quality-plugin/index.html)
 
-1. [kotlin-spring](https://tdp0516.github.io/gradle-conventions/html/gradle-conventions/com.tpero.gradle.kotlin/-kotlin-spring-plugin/index.html)
+1. [spring](https://tdp0516.github.io/gradle-conventions/html/gradle-conventions/com.tpero.gradle.kotlin/-spring-plugin/index.html)
+
+1. [spring-quality](https://tdp0516.github.io/gradle-conventions/html/gradle-conventions/com.tpero.gradle.kotlin/-spring-quality-plugin/index.html)
 
 ## How to reference the version catalog from other projects
 

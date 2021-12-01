@@ -39,7 +39,7 @@ class JvmQualityPluginTest {
             }
 
             assertTrue {
-                targetClasses.get().contains(JvmQualityPlugin.DEFAULT_PACKAGE)
+                targetClasses.get() == JvmQualityPlugin.DEFAULT_PACKAGES
             }
         }
     }
