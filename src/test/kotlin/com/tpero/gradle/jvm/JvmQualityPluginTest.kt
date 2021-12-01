@@ -7,9 +7,11 @@ import org.gradle.api.plugins.GroovyPlugin
 import org.gradle.api.plugins.scala.ScalaPlugin
 import org.sonarqube.gradle.SonarQubePlugin
 import kotlin.test.BeforeTest
+import kotlin.test.Ignore
 import kotlin.test.Test
 import kotlin.test.assertTrue
 
+@Ignore
 class JvmQualityPluginTest {
     private var project = ProjectWrapper().project
 

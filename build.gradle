@@ -1,13 +1,14 @@
 
 plugins {
-    id 'java-gradle-plugin'
-    id 'java-test-fixtures'
-    id 'maven-publish'
-    alias(libs.plugins.jfrog)
     alias(libs.plugins.detekt)
     alias(libs.plugins.dokka)
+    id 'java-gradle-plugin'
+    id 'java-test-fixtures'
+    alias(libs.plugins.jfrog)
     alias(libs.plugins.kotlin)
+    id 'maven-publish'
     alias(libs.plugins.pitest)
+    id 'version-catalog'
 }
 
 group = "com.tpero.gradle"
@@ -37,6 +38,7 @@ dependencies {
     // Dependencies needed for applying other plugins
     implementation libs.detekt
     implementation libs.dokka
+    implementation libs.itest
     implementation libs.kotlin.allopen
     implementation libs.kotlin.gradle.plugin
     implementation libs.pitest
@@ -49,36 +51,59 @@ dependencies {
     testImplementation libs.bundles.test
 }
 
+group = 'com.tpero.gradle'
+version = '0.0'
+
+catalog {
+    versionCatalog {
+        from(files('gradle/libs.versions.toml'))
+    }
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from components.versionCatalog
+        }
+    }
+}
+
 gradlePlugin {
     plugins {
+        register('jvm') {
+            id = 'jvm'
+            version = 0.0
+            implementationClass = 'com.tpero.gradle.jvm.JvmPlugin'
+        }
+
         register('jvm-quality') {
             id = 'jvm-quality'
             version = 0.0
             implementationClass = 'com.tpero.gradle.jvm.JvmQualityPlugin'
         }
 
-        register('kotlin-android') {
-            id = 'kotlin-android'
+        register('android') {
+            id = 'android'
             version = 0.0
-            implementationClass = 'com.tpero.gradle.kotlin.KotlinAndroidPlugin'
+            implementationClass = 'com.tpero.gradle.jvm.AndroidPlugin'
         }
 
-        register('kotlin-lib') {
-            id = 'kotlin-lib'
+        register('jvm-lib') {
+            id = 'jvm-lib'
             version = 0.0
-            implementationClass = 'com.tpero.gradle.kotlin.KotlinLibPlugin'
+            implementationClass = 'com.tpero.gradle.jvm.JvmLibPlugin'
         }
 
-        register('kotlin-quality') {
-            id = 'kotlin-quality'
+        register('spring') {
+            id = 'spring'
             version = 0.0
-            implementationClass = 'com.tpero.gradle.kotlin.KotlinQualityPlugin'
+            implementationClass = 'com.tpero.gradle.jvm.SpringPlugin'
         }
 
-        register('kotlin-spring') {
-            id = 'kotlin-spring'
+        register('spring-quality') {
+            id = 'spring-quality'
             version = 0.0
-            implementationClass = 'com.tpero.gradle.kotlin.KotlinSpringPlugin'
+            implementationClass = 'com.tpero.gradle.jvm.SpringQualityPlugin'
         }
     }
 }

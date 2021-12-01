@@ -1,5 +1,9 @@
 package com.tpero.gradle.jvm
 
+import com.softeq.gradle.itest.ItestPlugin
+import com.tpero.gradle.addIntegrationTestBundle
+import com.tpero.gradle.addTestDependency
+import com.tpero.gradle.kotlin.KotlinQualityPlugin
 import info.solidsoft.gradle.pitest.PitestPlugin
 import info.solidsoft.gradle.pitest.PitestPluginExtension
 import org.gradle.api.Plugin
@@ -19,23 +23,43 @@ import org.sonarqube.gradle.SonarQubePlugin
  * 1. [SonarQube](https://docs.sonarqube.org/latest/analysis/scan/sonarscanner-for-gradle/)
  * 1. [Scala](https://docs.gradle.org/current/userguide/scala_plugin.html) - To support Gatling testing
  */
-class JvmQualityPlugin: Plugin<Project> {
+class JvmQualityPlugin : Plugin<Project> {
     companion object {
         const val DEFAULT_PACKAGE = "com.tpero.*"
     }
 
     override fun apply(project: Project) {
         project.plugins.apply {
+            apply(JvmPlugin::class.java)
             apply(GroovyPlugin::class.java)
             apply(PitestPlugin::class.java)
             apply(SonarQubePlugin::class.java)
             apply(ScalaPlugin::class.java)
+            apply(ItestPlugin::class.java)
         }
 
         // Pitest conventions
-        project.extensions.findByType(PitestPluginExtension::class.java)!!.apply {
-            targetClasses.set(mutableSetOf(project.properties["pitestTarget"] as String? ?: DEFAULT_PACKAGE))
-            outputFormats.set(mutableSetOf("HTML", "XML"))
+        project.extensions.apply {
+            findByType(PitestPluginExtension::class.java)!!.apply {
+                targetClasses.set(mutableSetOf(project.properties["pitestTarget"] as String? ?: DEFAULT_PACKAGE))
+                outputFormats.set(mutableSetOf("HTML", "XML"))
+            }
         }
+
+        addTestDependency(project, "spock")
+        addIntegrationTestBundle(project, "cucumber")
+
+        if (project.extensions.findByType(JvmExtension::class.java)!!.language == JvmLanguage.KOTLIN) {
+            project.plugins.apply(KotlinQualityPlugin::class.java)
+        }
+
+        // Use JUnit 5
+//      project.extensions.findByType(TestingExtension::class.java)?.apply {
+//          suites.findByName("test")?.apply {
+//              targets.findByName("all").apply {
+//
+//              }
+//          }
+//      }
     }
 }

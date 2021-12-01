@@ -1,4 +1,4 @@
-package com.tpero.gradle.kotlin
+package com.tpero.gradle.jvm
 
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -11,10 +11,10 @@ import org.gradle.api.plugins.JavaLibraryPlugin
  * 1. [kotlin-quality](KotlinQualityPlugin)
  * 1. [java-library](https://docs.gradle.org/current/userguide/java_library_plugin.html)
  */
-class KotlinLibPlugin: Plugin<Project> {
+class JvmLibPlugin: Plugin<Project> {
     override fun apply(project: Project) {
         project.plugins.apply {
-            apply(KotlinQualityPlugin::class.java)
+            apply(JvmQualityPlugin::class.java)
             apply(JavaLibraryPlugin::class.java)
         }
     }

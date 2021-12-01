@@ -1,0 +1,131 @@
+[versions]
+android = '0.0'
+android-annotation = '1.1.0'
+android-constraint-layout = '2.0.4'
+android-gradle = '7.0.3'
+android-lifecycle-ktx = '2.3.0'
+appcompat = '1.2.0'
+commons-lang = '3.12.0'
+core-ktx = '1.3.2'
+cucumber = '7.0.0'
+dependency-graph-generator = '0.6.0'
+detekt = '1.18.1'
+espresso = '3.3.0'
+gatling = '3.7.1'
+gson = '2.8.9'
+itest = '1.0.4'
+jackson = '2.13.0'
+javax-validation = '2.0.1.Final'
+jfrog = '4+'
+junit-android = '1.1.2'
+jvm-lib = '0.0'
+jvm-spring = '0.0'
+jvm-spring-quality = '0.0'
+jvm-quality = '0.0'
+jwt = '3.18.2'
+kotlin = '1.6.0'
+kotlin-logging = '2.1.0'
+material = '1.3.0'
+node = '3.1.1'
+okhttp = '4.9.1'
+ognl = '3.2.20'
+pitest = '1.7.0'
+pitest-junit = '0.15'
+redis = '3.7.0'
+selenium = '3.141.59'
+sonar = '3.3'
+spock = '2.0-groovy-3.0'
+spring = '5.3.13'
+spring-boot = '2.5.7'
+spring-cloud-starter-stream = '3.1.4'
+spring-dependency-mgmt = '1.0.11.RELEASE'
+swagger = '3.0.0'
+web-driver-manager = '5.0.3'
+
+[plugins]
+android = { id = 'android', version.ref = 'android' }
+dependency-graph-generator = { id = 'com.vanniktech.dependency.graph.generator', version.ref = 'dependency-graph-generator' }
+detekt = { id = 'io.gitlab.arturbosch.detekt', version.ref = 'detekt' }
+dokka = { id = 'org.jetbrains.dokka', version.ref = 'kotlin' }
+gatling = { id = 'io.gatling.gradle', version.ref = 'gatling' }
+jfrog = { id = 'com.jfrog.artifactory', version.ref = 'jfrog' }
+itest = { id = 'com.softeq.gradle.itest', version.ref = 'itest' }
+jvm-lib = { id = 'jvm-lib', version.ref = 'jvm-lib' }
+jvm-spring = { id = 'spring', version.ref = 'jvm-spring' }
+jvm-spring-quality = { id = 'spring-quality', version.ref = 'jvm-spring-quality' }
+jvm-quality = { id = 'jvm-quality', version.ref = 'jvm-quality' }
+kotlin = { id = 'org.jetbrains.kotlin.jvm', version.ref = 'kotlin' }
+node = { id = 'com.github.node-gradle.node', version.ref = 'node' }
+pitest = { id = "info.solidsoft.pitest", version.ref = 'pitest' }
+sonar = { id = 'org.sonarqube', version.ref = 'sonar' }
+
+[libraries]
+android-annotation = { group = 'androidx.annotation', name = 'annotation', version.ref = 'android-annotation' }
+android-constraint-layout = { group = 'androidx.constraintlayout', name = 'constraintlayout', version.ref = 'android-constraint-layout' }
+android-gradle = { group = 'com.android.tools.build', name = 'gradle', version.ref = 'android-gradle' }
+android-lifecycle-livedata-ktx = { group = 'androidx.lifecycle', name = 'lifecycle-livedata-ktx', version.ref = 'android-lifecycle-ktx' }
+android-lifecycle-viewmodel-ktx = { group = 'androidx.lifecycle', name = 'lifecycle-viewmodel-ktx', version.ref = 'android-lifecycle-ktx' }
+appcompat = { group = 'androidx.appcompat', name = 'appcompat', version.ref = 'appcompat' }
+commons-lang = { group = 'org.apache.commons', name = 'commons-lang3', version.ref = 'commons-lang' }
+core-ktx = { group = 'androidx.core', name = 'core-ktx', version.ref = 'core-ktx' }
+cucumber-java = { group = 'io.cucumber', name = 'cucumber-java', version.ref = 'cucumber' }
+cucumber-junit = { group = 'io.cucumber', name = 'cucumber-junit-platform-engine', version.ref = 'cucumber' }
+cucumber-spring = { group = 'io.cucumber', name = 'cucumber-spring', version.ref = 'cucumber' }
+detekt = { group = 'io.gitlab.arturbosch.detekt', name = 'detekt-gradle-plugin', version.ref = 'detekt' }
+dokka = { group = 'org.jetbrains.dokka', name = 'dokka-gradle-plugin', version.ref = 'kotlin' }
+espresso = { group = 'androidx.test.espresso', name = 'espresso-core', version.ref = 'espresso' }
+gatling = { group = 'io.gatling.gradle', name = 'io.gatling.gradle.gradle.plugin', version.ref = 'gatling' }
+gson = { group = 'com.google.code.gson', name = 'gson', version.ref = 'gson' }
+itest = { group = 'com.softeq.gradle.itest', name = 'itest.gradle.plugin', version.ref = 'itest' }
+jackson-annotations = { group = 'com.fasterxml.jackson.core', name = 'jackson-annotations', version.ref = 'jackson' }
+javax-validation = { group = 'javax.validation', name = 'validation-api', version.ref = 'javax-validation' }
+jedis = { group = 'redis.clients', name = 'jedis', version.ref = 'redis' }
+jfrog-buildinfo = { group = 'org.jfrog.buildinfo', name = 'build-info-extractor-gradle', version.ref = 'jfrog' }
+junit-android = { group = 'androidx.test.ext', name = 'junit', version.ref = 'junit-android' }
+jwt = { group = 'com.auth0', name = 'java-jwt', version.ref = 'jwt' }
+kotlin-allopen = { group = 'org.jetbrains.kotlin', name = 'kotlin-allopen', version.ref = 'kotlin' }
+kotlin-gradle-plugin = { group = 'org.jetbrains.kotlin', name = 'kotlin-gradle-plugin', version.ref = 'kotlin' }
+kotlin-logging = { group = 'io.github.microutils', name = 'kotlin-logging-jvm', version.ref = 'kotlin-logging' }
+kotlin-plug = { group = 'org.jetbrains.kotlin', name = 'kotlin-gradle-plugin', version.ref = 'kotlin' }
+kotlin-reflect = { group = 'org.jetbrains.kotlin', name = 'kotlin-reflect', version.ref = 'kotlin' }
+kotlin-stdlib = { group = 'org.jetbrains.kotlin', name = 'kotlin-stdlib', version.ref = 'kotlin' }
+kotlin-stdlib-jdk8 = { group = 'org.jetbrains.kotlin', name = 'kotlin-stdlib-jdk8', version.ref = 'kotlin' }
+kotlin-test = { group = 'org.jetbrains.kotlin', name = 'kotlin-test' }
+kotlin-test-junit = { group = 'org.jetbrains.kotlin', name = 'kotlin-test-junit' }
+material = { group = 'com.google.android.material', name = 'material', version.ref = 'material' }
+ognl = { group = 'ognl', name = 'ognl', version.ref = 'ognl' }
+okhttp = { group = 'com.squareup.okhttp3', name = 'okhttp', version.ref = 'okhttp' }
+pitest = { group = 'info.solidsoft.gradle.pitest', name = 'gradle-pitest-plugin', version.ref = 'pitest' }
+sonar = { group = 'org.sonarsource.scanner.gradle', name = 'sonarqube-gradle-plugin', version.ref = 'sonar' }
+selenium = { group = 'org.seleniumhq.selenium', name = 'selenium-java', version.ref = 'selenium' }
+spock = { group = 'org.spockframework', name = 'spock-core', version.ref = 'spock' }
+spock-spring = { group = 'org.spockframework', name = 'spock-spring', version.ref = 'spock' }
+spring-boot-plugin = { group = 'org.springframework.boot', name = 'spring-boot-gradle-plugin', version.ref = 'spring-boot' }
+spring-boot-starter-actuator = { group = 'org.springframework.boot', name = 'spring-boot-starter-actuator' }
+spring-boot-starter-mongodb = { group = 'org.springframework.boot', name = 'spring-boot-starter-data-mongodb' }
+spring-boot-starter-security = { group = 'org.springframework.boot', name = 'spring-boot-starter-security' }
+spring-boot-starter-mail = { group = 'org.springframework.boot', name = 'spring-boot-starter-mail' }
+spring-boot-starter-redis = { group = 'org.springframework.boot', name = 'spring-boot-starter-data-redis', version.ref = 'spring-boot' }
+spring-boot-starter-test = { group = 'org.springframework.boot', name = 'spring-boot-starter-test' }
+spring-boot-starter-thymeleaf = { group = 'org.springframework.boot', name = 'spring-boot-starter-thymeleaf' }
+spring-boot-starter-validation = { group = 'org.springframework.boot', name = 'spring-boot-starter-validation' }
+spring-boot-starter-web = { group = 'org.springframework.boot', name = 'spring-boot-starter-web' }
+spring-cloud-starter-stream-kafka = { group = 'org.springframework.cloud', name = 'spring-cloud-starter-stream-kafka', version.ref = 'spring-cloud-starter-stream' }
+spring-cloud-starter-stream-rabbit = { group = 'org.springframework.cloud', name = 'spring-cloud-starter-stream-rabbit', version.ref = 'spring-cloud-starter-stream'}
+spring-context = { group = 'org.springframework', name = 'spring-context', version.ref = 'spring' }
+spring-dependency-mgmt = { group = 'io.spring.gradle', name = 'dependency-management-plugin', version.ref = 'spring-dependency-mgmt' }
+spring-kafka-test = { group = 'org.springframework.kafka', name = 'spring-kafka-test' }
+spring-security-test = { group = 'org.springframework.security', name = 'spring-security-test' }
+spring-web = { group = 'org.springframework', name = 'spring-web', version.ref = 'spring' }
+springfox-boot-starter = { group = 'io.springfox', name = 'springfox-boot-starter', version.ref = 'swagger' }
+swagger-ui = { group = 'io.springfox', name = 'springfox-swagger-ui', version.ref = 'swagger' }
+web-driver-manager = { group = 'io.github.bonigarcia', name = 'webdrivermanager', version.ref = 'web-driver-manager' }
+
+[bundles]
+cucumber = ['cucumber-java', 'cucumber-junit', 'cucumber-spring']
+spring = ['spring-context', 'spring-web']
+spring-boot = ['spring-boot-starter-actuator', 'spring-boot-starter-validation', 'spring-boot-starter-web']
+spring-redis = ['spring-boot-starter-redis', 'jedis']
+spring-spock = ['spock-spring', 'spock']
+swagger = ['springfox-boot-starter', 'swagger-ui']
+test = ['kotlin-test', 'kotlin-test-junit']

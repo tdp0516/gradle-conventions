@@ -1,29 +1,4 @@
 
-rootProject.name = "gradle-plugins"
+rootProject.name = "gradle-conventions"
 
 enableFeaturePreview("VERSION_CATALOGS")
-
-dependencyResolutionManagement {
-    repositories {
-        // Locally, this will be available in the local maven repo.
-        // When executed from CI it will use artifactory, which will be resolved
-        // by system properties set via github secrets. The reason for the hard-coded default dummy
-        // values is to allow the gradle scripts to properly resolve locally during evaluation.
-        // TODO Refactor this so the dummy defaults aren't necessary
-        mavenLocal()
-        maven {
-            url = System.properties['artifactoryUrl'] + '/default-maven-local' ?: 'https://localhost:8080'
-
-            credentials {
-                username = System.properties['artifactoryUser'] ?: ''
-                password = System.properties['artifactoryApiKey'] ?: ''
-            }
-        }
-    }
-
-    versionCatalogs {
-        libs {
-            from('com.tpero.gradle:gradle-version-catalogs:0.0')
-        }
-    }
-}

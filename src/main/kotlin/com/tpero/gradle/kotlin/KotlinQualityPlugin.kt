@@ -1,7 +1,5 @@
-
 package com.tpero.gradle.kotlin
 
-import com.tpero.gradle.jvm.JvmQualityPlugin
 import io.gitlab.arturbosch.detekt.DetektPlugin
 import io.gitlab.arturbosch.detekt.extensions.DetektExtension
 import org.gradle.api.Plugin
@@ -20,25 +18,36 @@ import org.jetbrains.kotlin.gradle.plugin.KotlinPluginWrapper
  * 1. [Pitest](https://gradle-pitest-plugin.solidsoft.info/)
  *     * The `pitest` task depends on `kotlinQuality` so that any `pitest` conventions are set appropriately
  */
-class KotlinQualityPlugin: Plugin<Project> {
+class KotlinQualityPlugin : Plugin<Project> {
     override fun apply(project: Project) {
         project.plugins.apply {
-            apply(KotlinPluginWrapper::class.java)
-            apply(JvmQualityPlugin::class.java)
             apply(DetektPlugin::class.java)
             apply(DokkaPlugin::class.java)
         }
 
-        val qualityTask = project.task("kotlinQuality") {
-            // Detekt conventions
-            project.extensions.findByType(DetektExtension::class.java)!!.apply {
-                buildUponDefaultConfig = true
-                // TODO Make this handle the null case better
-//                config = project.files(Thread.currentThread().contextClassLoader.getResource("detekt.yml")?.path)
-            }
+        project.extensions.findByType(DetektExtension::class.java)!!.apply {
+            buildUponDefaultConfig = true
+//                val copy = File("detekt-copy.yml").toPath()
+//                Files.copy(getDetektYmlStream(), copy, StandardCopyOption.REPLACE_EXISTING)
+//                config = project.files(project.zipTree(
+//                        KotlinQualityPlugin::class.java
+//                                .javaClass
+//                                .protectionDomain
+//                                .codeSource
+//                                .location
+//                                .path)
+//                        .files.filter {
+//                            it.name.contains("detekt.yml")
+//                        }.map {
+//                            it.absolutePath
+//                        })
         }
-
-        project.tasks.findByName("detekt")?.dependsOn(qualityTask)
-        project.tasks.findByName("pitest")?.dependsOn(qualityTask)
     }
+
+//    private fun getDetektYmlStream(): InputStream {
+//        return Thread.currentThread()
+//                .contextClassLoader
+//                .getResourceAsStream("detekt.yml")
+//                ?: throw IllegalStateException("Default detekt.yml is required and was unable to be located")
+//    }
 }

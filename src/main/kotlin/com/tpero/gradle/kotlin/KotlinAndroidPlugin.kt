@@ -8,10 +8,6 @@ import org.gradle.api.Project
  */
 class KotlinAndroidPlugin: Plugin<Project> {
     override fun apply(project: Project) {
-        project.plugins.apply {
-            apply("com.android.application")
-            apply(KotlinAndroidPlugin::class.java)
-            apply(KotlinQualityPlugin::class.java)
-        }
+        // TODO Kotlin specific Android stuff
     }
 }
