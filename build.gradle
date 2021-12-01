@@ -36,17 +36,18 @@ dependencies {
     implementation libs.bundles.spring
 
     // Dependencies needed for applying other plugins
+    implementation libs.android.gradle
     implementation libs.detekt
     implementation libs.dokka
+    implementation libs.gatling
     implementation libs.itest
     implementation libs.kotlin.allopen
     implementation libs.kotlin.gradle.plugin
+    implementation libs.node
     implementation libs.pitest
+    implementation libs.sonar
     implementation libs.spring.boot.plugin
     implementation libs.spring.dependency.mgmt
-    implementation libs.android.gradle
-    implementation libs.sonar
-    implementation libs.gatling
 
     testImplementation libs.bundles.test
 }

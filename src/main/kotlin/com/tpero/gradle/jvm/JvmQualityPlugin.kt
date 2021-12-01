@@ -16,12 +16,19 @@ import org.sonarqube.gradle.SonarQubePlugin
  * A gradle plugin that provides conventions to support developing quality JVM-based applications.
  *
  * The following plugins are applied with the documented conventions:
+ * 1. [jvm-plugin](JvmPlugin)
  * 1. [Groovy](https://docs.gradle.org/current/userguide/groovy_plugin.html) - To support Spock testing
+ *    * Adds a `testImplementation` dependency on spock-core
  * 1. [PiTest](https://gradle-pitest-plugin.solidsoft.info/)
  *     * Target Classes default to `com.tpero.*` but can be overridden using the `-PpitestTarget` command line argument
  *     * Produces HTMl and XML output files
  * 1. [SonarQube](https://docs.sonarqube.org/latest/analysis/scan/sonarscanner-for-gradle/)
  * 1. [Scala](https://docs.gradle.org/current/userguide/scala_plugin.html) - To support Gatling testing
+ * 1. [itest]() - To eventually be replaced with gradle's built-in JVM test suite solution
+ *     * Adds an `itestImplementation` dependency on several cucumber libraries
+ * 1. [kotlin-quality-plugin](KotlinQualityPlugin) - Only applied if `jvm.language` is set to [JvmLanguage.KOTLIN]
+ *
+ * A [jvm](JvmExtension) extension is provided to configure plugin functionality
  */
 class JvmQualityPlugin : Plugin<Project> {
     companion object {

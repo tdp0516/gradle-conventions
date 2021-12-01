@@ -93,6 +93,7 @@ kotlin-stdlib-jdk8 = { group = 'org.jetbrains.kotlin', name = 'kotlin-stdlib-jdk
 kotlin-test = { group = 'org.jetbrains.kotlin', name = 'kotlin-test' }
 kotlin-test-junit = { group = 'org.jetbrains.kotlin', name = 'kotlin-test-junit' }
 material = { group = 'com.google.android.material', name = 'material', version.ref = 'material' }
+node = { group = 'com.github.node-gradle', name = 'gradle-node-plugin', version.ref = 'node' }
 ognl = { group = 'ognl', name = 'ognl', version.ref = 'ognl' }
 okhttp = { group = 'com.squareup.okhttp3', name = 'okhttp', version.ref = 'okhttp' }
 pitest = { group = 'info.solidsoft.gradle.pitest', name = 'gradle-pitest-plugin', version.ref = 'pitest' }
