@@ -8,10 +8,9 @@ import info.solidsoft.gradle.pitest.PitestPlugin
 import info.solidsoft.gradle.pitest.PitestPluginExtension
 import org.gradle.api.Plugin
 import org.gradle.api.Project
-import org.gradle.api.artifacts.VersionCatalog
 import org.gradle.api.artifacts.VersionCatalogsExtension
 import org.gradle.api.plugins.GroovyPlugin
-import org.gradle.api.plugins.scala.ScalaPlugin
+import org.gradle.api.tasks.testing.Test
 import org.sonarqube.gradle.SonarQubePlugin
 
 /**
@@ -19,6 +18,7 @@ import org.sonarqube.gradle.SonarQubePlugin
  *
  * The following plugins are applied with the documented conventions:
  * 1. [jvm-plugin](JvmPlugin)
+ *     * `test` is set to run JUnit Jupiter tests by default
  * 1. [Groovy](https://docs.gradle.org/current/userguide/groovy_plugin.html) - To support Spock testing
  *    * Adds a `testImplementation` dependency on spock-core
  * 1. [PiTest](https://gradle-pitest-plugin.solidsoft.info/)
@@ -27,6 +27,8 @@ import org.sonarqube.gradle.SonarQubePlugin
  * 1. [SonarQube](https://docs.sonarqube.org/latest/analysis/scan/sonarscanner-for-gradle/)
  * 1. [itest]() - To eventually be replaced with gradle's built-in JVM test suite solution
  *     * Adds an `itestImplementation` dependency on several cucumber libraries
+ *     * `itestImplementation` inherits all dependencies from `testImplementation`
+ *     * `integrationTest` is set to run JUnit Jupiter tests by default
  * 1. [kotlin-quality-plugin](KotlinQualityPlugin) -
  * Only applied if [JvmExtension.language] is set to [JvmLanguage.KOTLIN]
  *
@@ -61,25 +63,23 @@ class JvmQualityPlugin : Plugin<Project> {
             }
         }
 
+        (project.tasks.findByName("test") as Test).useJUnitPlatform()
+        (project.tasks.findByName("integrationTest") as Test).useJUnitPlatform()
+
+        project.configurations.apply {
+            findByName("itestImplementation")?.extendsFrom(findByName("testImplementation"))
+        }
+
         addTestDependency(project, "spock")
         addIntegrationTestBundle(project, "cucumber")
 
         if (project.extensions.findByType(JvmExtension::class.java)!!.language == JvmLanguage.KOTLIN) {
             project.plugins.apply(KotlinQualityPlugin::class.java)
         }
-
-        // Use JUnit 5
-//      project.extensions.findByType(TestingExtension::class.java)?.apply {
-//          suites.findByName("test")?.apply {
-//              targets.findByName("all").apply {
-//
-//              }
-//          }
-//      }
     }
 
     private fun getTargetClasses(project: Project): Set<String> {
-       (project.properties["pitestTarget"] as String?)?.apply {
+        (project.properties["pitestTarget"] as String?)?.apply {
             return split(",").toSet()
         }
 

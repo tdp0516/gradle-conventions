@@ -40,6 +40,8 @@ KDocs can be viewed, up-to-date with main, [here](https://tdp0516.github.io/grad
 
 1. [spring-quality](https://tdp0516.github.io/gradle-conventions/html/gradle-conventions/com.tpero.gradle.jvm/-spring-quality-plugin/index.html)
 
+1. [node-quality](https://tdp0516.github.io/gradle-conventions/html/gradle-conventions/com.tpero.gradle.node/-node-quality-plugin/index.html)
+
 ## How to reference the version catalog from other projects
 
 Add the following to the `settings.gradle`

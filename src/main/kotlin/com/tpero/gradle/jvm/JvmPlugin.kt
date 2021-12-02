@@ -19,6 +19,10 @@ import org.jetbrains.kotlin.gradle.plugin.KotlinPluginWrapper
  */
 class JvmPlugin: Plugin<Project> {
     override fun apply(project: Project) {
+        project.repositories.apply {
+            add(mavenCentral())
+        }
+
         val extension = project.extensions.create("jvm", JvmExtension::class.java)
         project.plugins.apply {
             when (extension.language) {

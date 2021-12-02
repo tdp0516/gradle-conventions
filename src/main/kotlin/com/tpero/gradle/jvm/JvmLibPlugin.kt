@@ -3,6 +3,7 @@ package com.tpero.gradle.jvm
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.plugins.JavaLibraryPlugin
+import org.gradle.api.publish.maven.plugins.MavenPublishPlugin
 
 /**
  * A gradle plugin that provides conventions to support developing JVM-based libraries.
@@ -16,6 +17,7 @@ class JvmLibPlugin: Plugin<Project> {
         project.plugins.apply {
             apply(JvmQualityPlugin::class.java)
             apply(JavaLibraryPlugin::class.java)
+            apply(MavenPublishPlugin::class.java)
         }
     }
 }

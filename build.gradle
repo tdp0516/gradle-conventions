@@ -115,6 +115,11 @@ gradlePlugin {
     }
 }
 
+detekt {
+    buildUponDefaultConfig = true
+    config = files('src/main/resources/detekt.yml')
+}
+
 pitest {
     testPlugin.set('KotlinTest')
     targetClasses.set(['com.tpero.gradle.*'])

@@ -39,6 +39,7 @@ spock = '2.0-groovy-3.0'
 spring = '5.3.13'
 spring-boot = '2.5.7'
 spring-cloud-starter-stream = '3.1.4'
+spring-common = '0.0'
 spring-dependency-mgmt = '1.0.11.RELEASE'
 swagger = '3.0.0'
 web-driver-manager = '5.0.3'
@@ -115,6 +116,7 @@ spring-boot-starter-validation = { group = 'org.springframework.boot', name = 's
 spring-boot-starter-web = { group = 'org.springframework.boot', name = 'spring-boot-starter-web' }
 spring-cloud-starter-stream-kafka = { group = 'org.springframework.cloud', name = 'spring-cloud-starter-stream-kafka', version.ref = 'spring-cloud-starter-stream' }
 spring-cloud-starter-stream-rabbit = { group = 'org.springframework.cloud', name = 'spring-cloud-starter-stream-rabbit', version.ref = 'spring-cloud-starter-stream'}
+spring-common = { group = 'com.tpero.spring', name = 'spring-common', version.ref = 'spring-common' }
 spring-context = { group = 'org.springframework', name = 'spring-context', version.ref = 'spring' }
 spring-dependency-mgmt = { group = 'io.spring.gradle', name = 'dependency-management-plugin', version.ref = 'spring-dependency-mgmt' }
 spring-kafka-test = { group = 'org.springframework.kafka', name = 'spring-kafka-test' }

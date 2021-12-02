@@ -5,7 +5,6 @@ import io.gitlab.arturbosch.detekt.extensions.DetektExtension
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.jetbrains.dokka.gradle.DokkaPlugin
-import org.jetbrains.kotlin.gradle.plugin.KotlinPluginWrapper
 
 /**
  * A gradle plugin that provides conventions to support developing quality Kotlin applications.

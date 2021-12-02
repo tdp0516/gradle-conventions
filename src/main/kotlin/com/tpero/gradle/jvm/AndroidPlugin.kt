@@ -14,7 +14,9 @@ import org.gradle.api.Project
  */
 class AndroidPlugin: Plugin<Project> {
     override fun apply(project: Project) {
-        project.repositories.add(project.repositories.google())
+        project.repositories.apply {
+            add(google())
+        }
 
         project.plugins.apply {
             apply(JvmPlugin::class.java)
