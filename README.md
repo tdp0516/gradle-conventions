@@ -59,9 +59,9 @@ pluginManagement {
                 username = System.properties['artifactoryUser'] ?: ''
                 password = System.properties['artifactoryApiKey'] ?: ''
             }
-		}
-		// Required for the android dependency my plugin jar has
-		// TODO Separate plugins into separate jars so that this isn't necessary
+        }
+        // Required for the android dependency my plugin jar has
+        // TODO Separate plugins into separate jars so that this isn't necessary
 		google()
     }
 }
