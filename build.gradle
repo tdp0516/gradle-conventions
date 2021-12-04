@@ -1,9 +1,10 @@
+import org.gradle.api.internal.classpath.ModuleRegistry
+import org.gradle.api.internal.project.ProjectInternal
 
 plugins {
     alias(libs.plugins.detekt)
     alias(libs.plugins.dokka)
     id 'java-gradle-plugin'
-    id 'java-test-fixtures'
     alias(libs.plugins.jfrog)
     alias(libs.plugins.kotlin)
     id 'maven-publish'
@@ -48,6 +49,13 @@ dependencies {
     implementation libs.spring.dependency.mgmt
 
     testImplementation libs.bundles.test
+
+    def toolingApiBuildersJar = (project as ProjectInternal).services.get(ModuleRegistry.class)
+            .getModule("gradle-tooling-api-builders")
+            .classpath
+            .asFiles
+            .first()
+    testRuntimeOnly(files(toolingApiBuildersJar))
 }
 
 group = 'com.tpero.gradle'

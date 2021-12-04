@@ -1,5 +1,6 @@
 package com.tpero.gradle.jvm
 
+import com.android.build.gradle.AppPlugin
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 
@@ -20,7 +21,7 @@ class AndroidPlugin: Plugin<Project> {
 
         project.plugins.apply {
             apply(JvmPlugin::class.java)
-            apply("com.android.application")
+            apply(AppPlugin::class.java)
         }
     }
 }

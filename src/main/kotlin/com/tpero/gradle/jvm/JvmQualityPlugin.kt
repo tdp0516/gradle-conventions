@@ -3,7 +3,8 @@ package com.tpero.gradle.jvm
 import com.softeq.gradle.itest.ItestPlugin
 import com.tpero.gradle.addIntegrationTestBundle
 import com.tpero.gradle.addTestDependency
-import com.tpero.gradle.kotlin.KotlinQualityPlugin
+import com.tpero.gradle.jvm.java.JavaQualityPlugin
+import com.tpero.gradle.jvm.kotlin.KotlinQualityPlugin
 import info.solidsoft.gradle.pitest.PitestPlugin
 import info.solidsoft.gradle.pitest.PitestPluginExtension
 import org.gradle.api.Plugin
@@ -51,9 +52,7 @@ class JvmQualityPlugin : Plugin<Project> {
         // Pitest conventions
         project.extensions.apply {
             findByType(PitestPluginExtension::class.java)!!.apply {
-                junit5PluginVersion.set(project
-                        .extensions
-                        .findByType(VersionCatalogsExtension::class.java)
+                junit5PluginVersion.set(findByType(VersionCatalogsExtension::class.java)
                         ?.named("libs")
                         ?.findVersion("pitest-junit")
                         ?.get()
@@ -63,8 +62,10 @@ class JvmQualityPlugin : Plugin<Project> {
             }
         }
 
-        (project.tasks.findByName("test") as Test).useJUnitPlatform()
-        (project.tasks.findByName("integrationTest") as Test).useJUnitPlatform()
+        project.tasks.apply {
+            (findByName("test") as Test).useJUnitPlatform()
+            (findByName("integrationTest") as Test).useJUnitPlatform()
+        }
 
         project.configurations.apply {
             findByName("itestImplementation")?.extendsFrom(findByName("testImplementation"))
@@ -73,8 +74,11 @@ class JvmQualityPlugin : Plugin<Project> {
         addTestDependency(project, "spock")
         addIntegrationTestBundle(project, "cucumber")
 
-        if (project.extensions.findByType(JvmExtension::class.java)!!.language == JvmLanguage.KOTLIN) {
-            project.plugins.apply(KotlinQualityPlugin::class.java)
+        project.plugins.apply {
+            when (project.extensions.findByType(JvmExtension::class.java)!!.language) {
+                JvmLanguage.KOTLIN -> apply(KotlinQualityPlugin::class.java)
+                JvmLanguage.JAVA -> apply(JavaQualityPlugin::class.java)
+            }
         }
     }
 

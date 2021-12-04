@@ -1,19 +1,16 @@
 package com.tpero.gradle.jvm
 
-import com.tpero.gradle.ProjectWrapper
 import info.solidsoft.gradle.pitest.PitestPlugin
 import info.solidsoft.gradle.pitest.PitestPluginExtension
 import org.gradle.api.plugins.GroovyPlugin
-import org.gradle.api.plugins.scala.ScalaPlugin
+import org.gradle.testfixtures.ProjectBuilder
 import org.sonarqube.gradle.SonarQubePlugin
 import kotlin.test.BeforeTest
-import kotlin.test.Ignore
 import kotlin.test.Test
 import kotlin.test.assertTrue
 
-@Ignore
 class JvmQualityPluginTest {
-    private var project = ProjectWrapper().project
+    private val project = ProjectBuilder.builder().build()
 
     @BeforeTest
     fun `Initialize project`() {
@@ -53,13 +50,6 @@ class JvmQualityPluginTest {
     fun `Spock conventions are established`() {
         assertTrue {
             this.project.plugins.hasPlugin(GroovyPlugin::class.java)
-        }
-    }
-
-    @Test
-    fun `Gatling conventions are established`() {
-        assertTrue {
-            this.project.plugins.hasPlugin(ScalaPlugin::class.java)
         }
     }
 

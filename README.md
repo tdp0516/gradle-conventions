@@ -42,6 +42,32 @@ KDocs can be viewed, up-to-date with main, [here](https://tdp0516.github.io/grad
 
 1. [node-quality](https://tdp0516.github.io/gradle-conventions/html/gradle-conventions/com.tpero.gradle.node/-node-quality-plugin/index.html)
 
+## How to reference the plugins
+
+Add the following to the `settings.gradle`
+
+```
+
+pluginManagement {
+    repositories {
+        mavenLocal()
+        gradlePluginPortal()
+		maven {
+			url = System.properties['artifactoryUrl'] + '/default-maven-local' ?: 'https://localhost:8080'
+
+			credentials {
+				username = System.properties['artifactoryUser'] ?: ''
+				password = System.properties['artifactoryApiKey'] ?: ''
+			}
+		}
+		// Required for the android dependency my plugin jar has
+		// TODO Separate plugins into separate jars so that this isn't necessary
+		google()
+    }
+}
+
+```
+
 ## How to reference the version catalog from other projects
 
 Add the following to the `settings.gradle`

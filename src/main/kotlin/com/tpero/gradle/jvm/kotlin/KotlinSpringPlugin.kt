@@ -1,4 +1,4 @@
-package com.tpero.gradle.kotlin
+package com.tpero.gradle.jvm.kotlin
 
 import org.gradle.api.Plugin
 import org.gradle.api.Project
