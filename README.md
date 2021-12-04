@@ -62,7 +62,7 @@ pluginManagement {
         }
         // Required for the android dependency my plugin jar has
         // TODO Separate plugins into separate jars so that this isn't necessary
-		google()
+        google()
     }
 }
 
