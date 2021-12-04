@@ -1,5 +1,25 @@
 $dokka.format:html-v1
 $dokka.linkExtension:html
+$dokka.location:com.tpero.gradle.jvm.java////PointingToDeclaration/gradle-conventions/com.tpero.gradle.jvm.java/index.html
+$dokka.location:com.tpero.gradle.jvm.java/JavaPlugin///PointingToDeclaration/gradle-conventions/com.tpero.gradle.jvm.java/-java-plugin/index.html
+$dokka.location:com.tpero.gradle.jvm.java/JavaPlugin/JavaPlugin/#/PointingToDeclaration/gradle-conventions/com.tpero.gradle.jvm.java/-java-plugin/-java-plugin.html
+$dokka.location:com.tpero.gradle.jvm.java/JavaPlugin/apply/#org.gradle.api.Project/PointingToDeclaration/gradle-conventions/com.tpero.gradle.jvm.java/-java-plugin/apply.html
+$dokka.location:com.tpero.gradle.jvm.java/JavaQualityPlugin///PointingToDeclaration/gradle-conventions/com.tpero.gradle.jvm.java/-java-quality-plugin/index.html
+$dokka.location:com.tpero.gradle.jvm.java/JavaQualityPlugin/JavaQualityPlugin/#/PointingToDeclaration/gradle-conventions/com.tpero.gradle.jvm.java/-java-quality-plugin/-java-quality-plugin.html
+$dokka.location:com.tpero.gradle.jvm.java/JavaQualityPlugin/apply/#org.gradle.api.Project/PointingToDeclaration/gradle-conventions/com.tpero.gradle.jvm.java/-java-quality-plugin/apply.html
+$dokka.location:com.tpero.gradle.jvm.kotlin////PointingToDeclaration/gradle-conventions/com.tpero.gradle.jvm.kotlin/index.html
+$dokka.location:com.tpero.gradle.jvm.kotlin/KotlinAndroidPlugin///PointingToDeclaration/gradle-conventions/com.tpero.gradle.jvm.kotlin/-kotlin-android-plugin/index.html
+$dokka.location:com.tpero.gradle.jvm.kotlin/KotlinAndroidPlugin/KotlinAndroidPlugin/#/PointingToDeclaration/gradle-conventions/com.tpero.gradle.jvm.kotlin/-kotlin-android-plugin/-kotlin-android-plugin.html
+$dokka.location:com.tpero.gradle.jvm.kotlin/KotlinAndroidPlugin/apply/#org.gradle.api.Project/PointingToDeclaration/gradle-conventions/com.tpero.gradle.jvm.kotlin/-kotlin-android-plugin/apply.html
+$dokka.location:com.tpero.gradle.jvm.kotlin/KotlinPlugin///PointingToDeclaration/gradle-conventions/com.tpero.gradle.jvm.kotlin/-kotlin-plugin/index.html
+$dokka.location:com.tpero.gradle.jvm.kotlin/KotlinPlugin/KotlinPlugin/#/PointingToDeclaration/gradle-conventions/com.tpero.gradle.jvm.kotlin/-kotlin-plugin/-kotlin-plugin.html
+$dokka.location:com.tpero.gradle.jvm.kotlin/KotlinPlugin/apply/#org.gradle.api.Project/PointingToDeclaration/gradle-conventions/com.tpero.gradle.jvm.kotlin/-kotlin-plugin/apply.html
+$dokka.location:com.tpero.gradle.jvm.kotlin/KotlinQualityPlugin///PointingToDeclaration/gradle-conventions/com.tpero.gradle.jvm.kotlin/-kotlin-quality-plugin/index.html
+$dokka.location:com.tpero.gradle.jvm.kotlin/KotlinQualityPlugin/KotlinQualityPlugin/#/PointingToDeclaration/gradle-conventions/com.tpero.gradle.jvm.kotlin/-kotlin-quality-plugin/-kotlin-quality-plugin.html
+$dokka.location:com.tpero.gradle.jvm.kotlin/KotlinQualityPlugin/apply/#org.gradle.api.Project/PointingToDeclaration/gradle-conventions/com.tpero.gradle.jvm.kotlin/-kotlin-quality-plugin/apply.html
+$dokka.location:com.tpero.gradle.jvm.kotlin/KotlinSpringPlugin///PointingToDeclaration/gradle-conventions/com.tpero.gradle.jvm.kotlin/-kotlin-spring-plugin/index.html
+$dokka.location:com.tpero.gradle.jvm.kotlin/KotlinSpringPlugin/KotlinSpringPlugin/#/PointingToDeclaration/gradle-conventions/com.tpero.gradle.jvm.kotlin/-kotlin-spring-plugin/-kotlin-spring-plugin.html
+$dokka.location:com.tpero.gradle.jvm.kotlin/KotlinSpringPlugin/apply/#org.gradle.api.Project/PointingToDeclaration/gradle-conventions/com.tpero.gradle.jvm.kotlin/-kotlin-spring-plugin/apply.html
 $dokka.location:com.tpero.gradle.jvm////PointingToDeclaration/gradle-conventions/com.tpero.gradle.jvm/index.html
 $dokka.location:com.tpero.gradle.jvm/AndroidPlugin///PointingToDeclaration/gradle-conventions/com.tpero.gradle.jvm/-android-plugin/index.html
 $dokka.location:com.tpero.gradle.jvm/AndroidPlugin/AndroidPlugin/#/PointingToDeclaration/gradle-conventions/com.tpero.gradle.jvm/-android-plugin/-android-plugin.html
@@ -27,16 +47,6 @@ $dokka.location:com.tpero.gradle.jvm/SpringPlugin/apply/#org.gradle.api.Project/
 $dokka.location:com.tpero.gradle.jvm/SpringQualityPlugin///PointingToDeclaration/gradle-conventions/com.tpero.gradle.jvm/-spring-quality-plugin/index.html
 $dokka.location:com.tpero.gradle.jvm/SpringQualityPlugin/SpringQualityPlugin/#/PointingToDeclaration/gradle-conventions/com.tpero.gradle.jvm/-spring-quality-plugin/-spring-quality-plugin.html
 $dokka.location:com.tpero.gradle.jvm/SpringQualityPlugin/apply/#org.gradle.api.Project/PointingToDeclaration/gradle-conventions/com.tpero.gradle.jvm/-spring-quality-plugin/apply.html
-$dokka.location:com.tpero.gradle.kotlin////PointingToDeclaration/gradle-conventions/com.tpero.gradle.kotlin/index.html
-$dokka.location:com.tpero.gradle.kotlin/KotlinAndroidPlugin///PointingToDeclaration/gradle-conventions/com.tpero.gradle.kotlin/-kotlin-android-plugin/index.html
-$dokka.location:com.tpero.gradle.kotlin/KotlinAndroidPlugin/KotlinAndroidPlugin/#/PointingToDeclaration/gradle-conventions/com.tpero.gradle.kotlin/-kotlin-android-plugin/-kotlin-android-plugin.html
-$dokka.location:com.tpero.gradle.kotlin/KotlinAndroidPlugin/apply/#org.gradle.api.Project/PointingToDeclaration/gradle-conventions/com.tpero.gradle.kotlin/-kotlin-android-plugin/apply.html
-$dokka.location:com.tpero.gradle.kotlin/KotlinQualityPlugin///PointingToDeclaration/gradle-conventions/com.tpero.gradle.kotlin/-kotlin-quality-plugin/index.html
-$dokka.location:com.tpero.gradle.kotlin/KotlinQualityPlugin/KotlinQualityPlugin/#/PointingToDeclaration/gradle-conventions/com.tpero.gradle.kotlin/-kotlin-quality-plugin/-kotlin-quality-plugin.html
-$dokka.location:com.tpero.gradle.kotlin/KotlinQualityPlugin/apply/#org.gradle.api.Project/PointingToDeclaration/gradle-conventions/com.tpero.gradle.kotlin/-kotlin-quality-plugin/apply.html
-$dokka.location:com.tpero.gradle.kotlin/KotlinSpringPlugin///PointingToDeclaration/gradle-conventions/com.tpero.gradle.kotlin/-kotlin-spring-plugin/index.html
-$dokka.location:com.tpero.gradle.kotlin/KotlinSpringPlugin/KotlinSpringPlugin/#/PointingToDeclaration/gradle-conventions/com.tpero.gradle.kotlin/-kotlin-spring-plugin/-kotlin-spring-plugin.html
-$dokka.location:com.tpero.gradle.kotlin/KotlinSpringPlugin/apply/#org.gradle.api.Project/PointingToDeclaration/gradle-conventions/com.tpero.gradle.kotlin/-kotlin-spring-plugin/apply.html
 $dokka.location:com.tpero.gradle.node////PointingToDeclaration/gradle-conventions/com.tpero.gradle.node/index.html
 $dokka.location:com.tpero.gradle.node/NodeQualityPlugin///PointingToDeclaration/gradle-conventions/com.tpero.gradle.node/-node-quality-plugin/index.html
 $dokka.location:com.tpero.gradle.node/NodeQualityPlugin/NodeQualityPlugin/#/PointingToDeclaration/gradle-conventions/com.tpero.gradle.node/-node-quality-plugin/-node-quality-plugin.html
@@ -50,6 +60,7 @@ $dokka.location:com.tpero.gradle//addTestDependency/#org.gradle.api.Project#kotl
 $dokka.location:com.tpero.gradle//addTestDependency/#org.gradle.api.Project#kotlin.String/PointingToDeclaration/gradle-conventions/com.tpero.gradle/add-test-dependency.html
 com.tpero.gradle
 com.tpero.gradle.jvm
-com.tpero.gradle.kotlin
+com.tpero.gradle.jvm.java
+com.tpero.gradle.jvm.kotlin
 com.tpero.gradle.node
 
