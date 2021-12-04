@@ -52,13 +52,13 @@ pluginManagement {
     repositories {
         mavenLocal()
         gradlePluginPortal()
-		maven {
-			url = System.properties['artifactoryUrl'] + '/default-maven-local' ?: 'https://localhost:8080'
+        maven {
+            url = System.properties['artifactoryUrl'] + '/default-maven-local' ?: 'https://localhost:8080'
 
-			credentials {
-				username = System.properties['artifactoryUser'] ?: ''
-				password = System.properties['artifactoryApiKey'] ?: ''
-			}
+            credentials {
+                username = System.properties['artifactoryUser'] ?: ''
+                password = System.properties['artifactoryApiKey'] ?: ''
+            }
 		}
 		// Required for the android dependency my plugin jar has
 		// TODO Separate plugins into separate jars so that this isn't necessary
