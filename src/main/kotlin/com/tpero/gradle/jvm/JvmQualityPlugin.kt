@@ -1,6 +1,5 @@
 package com.tpero.gradle.jvm
 
-import com.softeq.gradle.itest.ItestPlugin
 import com.tpero.gradle.addIntegrationTestBundle
 import com.tpero.gradle.addTestDependency
 import com.tpero.gradle.jvm.java.JavaQualityPlugin
@@ -11,7 +10,8 @@ import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.artifacts.VersionCatalogsExtension
 import org.gradle.api.plugins.GroovyPlugin
-import org.gradle.api.tasks.testing.Test
+import org.gradle.api.plugins.jvm.JvmTestSuite
+import org.gradle.testing.base.TestingExtension
 import org.sonarqube.gradle.SonarQubePlugin
 
 /**
@@ -46,7 +46,6 @@ class JvmQualityPlugin : Plugin<Project> {
             apply(GroovyPlugin::class.java)
             apply(PitestPlugin::class.java)
             apply(SonarQubePlugin::class.java)
-            apply(ItestPlugin::class.java)
         }
 
         // Pitest conventions
@@ -62,17 +61,17 @@ class JvmQualityPlugin : Plugin<Project> {
             }
         }
 
-        project.tasks.apply {
-            (findByName("test") as Test).useJUnitPlatform()
-            (findByName("integrationTest") as Test).useJUnitPlatform()
-        }
+        project.extensions.getByType(TestingExtension::class.java).suites.apply {
+            (this.getByName("test") as JvmTestSuite).apply {
+                this.useSpock()
+                addTestDependency(project, "spock")
+            }
 
-        project.configurations.apply {
-            findByName("itestImplementation")?.extendsFrom(findByName("testImplementation"))
+            this.create("itest", JvmTestSuite::class.java).apply {
+                this.useJUnitJupiter()
+                addIntegrationTestBundle(project, "cucumber")
+            }
         }
-
-        addTestDependency(project, "spock")
-        addIntegrationTestBundle(project, "cucumber")
 
         project.plugins.apply {
             when (project.extensions.findByType(JvmExtension::class.java)!!.language) {

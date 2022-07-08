@@ -1,4 +1,2 @@
 
 rootProject.name = "gradle-conventions"
-
-enableFeaturePreview("VERSION_CATALOGS")

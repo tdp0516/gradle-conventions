@@ -5,6 +5,8 @@ import com.tpero.gradle.jvm.java.JavaPlugin
 import com.tpero.gradle.jvm.kotlin.KotlinPlugin
 import org.gradle.api.Plugin
 import org.gradle.api.Project
+import org.gradle.api.plugins.JavaPluginExtension
+import org.gradle.jvm.toolchain.JavaLanguageVersion
 import java.net.URI
 
 /**
@@ -38,6 +40,14 @@ class JvmPlugin : Plugin<Project> {
                 JvmLanguage.KOTLIN -> apply(KotlinPlugin::class.java)
                 JvmLanguage.JAVA -> apply(JavaPlugin::class.java)
             }
+        }
+
+        // Provide a property to set the java toolchain version
+        (project.properties["java.toolchain.languageVersion"].toString().toIntOrNull())?.apply {
+            project.extensions.getByType(JavaPluginExtension::class.java)
+                    .toolchain
+                    .languageVersion
+                    .set(JavaLanguageVersion.of(this))
         }
 
         addDependency(project, "commons-lang")

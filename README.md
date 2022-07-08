@@ -20,7 +20,7 @@ This may include, but is not limited to:
 
 ## How to publish locally for testing
 
-`<gradlew.bat|.gradlew publishToMavenLocal`
+`<gradlew.bat|.gradlew> publishToMavenLocal`
 
 ## Documentation
 
