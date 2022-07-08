@@ -13,7 +13,7 @@ plugins {
 }
 
 publishToMavenLocal {
-    dependsOn build
+    dependsOn check
 }
 
 repositories {
@@ -39,7 +39,6 @@ dependencies {
     implementation libs.detekt
     implementation libs.dokka
     implementation libs.gatling
-    implementation libs.itest
     implementation libs.kotlin.allopen
     implementation libs.kotlin.gradle.plugin
     implementation libs.node
@@ -102,43 +101,43 @@ gradlePlugin {
     plugins {
         register('jvm') {
             id = 'jvm'
-            version = 0.0
+            version = '0.0.0-SNAPSHOT'
             implementationClass = 'com.tpero.gradle.jvm.JvmPlugin'
         }
 
         register('jvm-quality') {
             id = 'jvm-quality'
-            version = 0.0
+            version = '0.0.0-SNAPSHOT'
             implementationClass = 'com.tpero.gradle.jvm.JvmQualityPlugin'
         }
 
         register('android') {
             id = 'android'
-            version = 0.0
+            version = '0.0.0-SNAPSHOT'
             implementationClass = 'com.tpero.gradle.jvm.AndroidPlugin'
         }
 
         register('jvm-lib') {
             id = 'jvm-lib'
-            version = 0.0
+            version = '0.0.0-SNAPSHOT'
             implementationClass = 'com.tpero.gradle.jvm.JvmLibPlugin'
         }
 
         register('spring') {
             id = 'spring'
-            version = 0.0
+            version = '0.0.0-SNAPSHOT'
             implementationClass = 'com.tpero.gradle.jvm.SpringPlugin'
         }
 
         register('spring-quality') {
             id = 'spring-quality'
-            version = 0.0
+            version = '0.0.0-SNAPSHOT'
             implementationClass = 'com.tpero.gradle.jvm.SpringQualityPlugin'
         }
 
         register('node-quality') {
             id = 'node-quality'
-            version = 0.0
+            version = '0.0.0-SNAPSHOT'
             implementationClass = 'com.tpero.gradle.node.NodeQualityPlugin'
         }
     }

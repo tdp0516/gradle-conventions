@@ -4,7 +4,12 @@ import com.tpero.gradle.jvm.kotlin.KotlinSpringPlugin
 import io.spring.gradle.dependencymanagement.DependencyManagementPlugin
 import org.gradle.api.Plugin
 import org.gradle.api.Project
+import org.jetbrains.kotlin.allopen.gradle.AllOpenExtension
+import org.jetbrains.kotlin.allopen.gradle.SpringGradleSubplugin
 import org.springframework.boot.gradle.plugin.SpringBootPlugin
+import org.springframework.context.annotation.Configuration
+import org.springframework.stereotype.Service
+import org.springframework.web.bind.annotation.RestController
 
 /**
  * A gradle plugin that provides conventions for developing Spring applications
@@ -20,6 +25,7 @@ class SpringPlugin: Plugin<Project> {
             apply(JvmPlugin::class.java)
             apply(SpringBootPlugin::class.java)
             apply(DependencyManagementPlugin::class.java)
+            apply(SpringGradleSubplugin::class.java)
         }
 
         project.tasks.findByName("jar")!!.apply {
@@ -28,6 +34,12 @@ class SpringPlugin: Plugin<Project> {
 
         if (project.extensions.findByType(JvmExtension::class.java)!!.language == JvmLanguage.KOTLIN) {
             project.plugins.apply(KotlinSpringPlugin::class.java)
+        }
+
+        project.extensions.getByType(AllOpenExtension::class.java).apply {
+            annotation(Configuration::class.java.canonicalName)
+            annotation(RestController::class.java.canonicalName)
+            annotation(Service::class.java.canonicalName)
         }
     }
 }
