@@ -27,8 +27,8 @@ $dokka.location:com.tpero.gradle.jvm/AndroidPlugin/apply/#org.gradle.api.Project
 $dokka.location:com.tpero.gradle.jvm/JvmExtension///PointingToDeclaration/gradle-conventions/com.tpero.gradle.jvm/-jvm-extension/index.html
 $dokka.location:com.tpero.gradle.jvm/JvmExtension/JvmExtension/#/PointingToDeclaration/gradle-conventions/com.tpero.gradle.jvm/-jvm-extension/-jvm-extension.html
 $dokka.location:com.tpero.gradle.jvm/JvmExtension/language/#/PointingToDeclaration/gradle-conventions/com.tpero.gradle.jvm/-jvm-extension/language.html
-$dokka.location:com.tpero.gradle.jvm/JvmLanguage.JAVA///PointingToDeclaration/gradle-conventions/com.tpero.gradle.jvm/-jvm-language/-j-a-v-a/index.html
-$dokka.location:com.tpero.gradle.jvm/JvmLanguage.KOTLIN///PointingToDeclaration/gradle-conventions/com.tpero.gradle.jvm/-jvm-language/-k-o-t-l-i-n/index.html
+$dokka.location:com.tpero.gradle.jvm/JvmLanguage.JAVA///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}gradle-conventions/com.tpero.gradle.jvm/-jvm-language/-j-a-v-a/index.html
+$dokka.location:com.tpero.gradle.jvm/JvmLanguage.KOTLIN///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}gradle-conventions/com.tpero.gradle.jvm/-jvm-language/-k-o-t-l-i-n/index.html
 $dokka.location:com.tpero.gradle.jvm/JvmLanguage///PointingToDeclaration/gradle-conventions/com.tpero.gradle.jvm/-jvm-language/index.html
 $dokka.location:com.tpero.gradle.jvm/JvmLibPlugin///PointingToDeclaration/gradle-conventions/com.tpero.gradle.jvm/-jvm-lib-plugin/index.html
 $dokka.location:com.tpero.gradle.jvm/JvmLibPlugin/JvmLibPlugin/#/PointingToDeclaration/gradle-conventions/com.tpero.gradle.jvm/-jvm-lib-plugin/-jvm-lib-plugin.html
