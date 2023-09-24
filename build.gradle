@@ -75,6 +75,27 @@ publishing {
             from components.versionCatalog
         }
     }
+
+    repositories {
+        maven {
+            name = 'tperoRemoteMvn'
+            url = uri('https://maven.pkg.github.com/tdp0516/mvn-repo/')
+            credentials {
+                username = project.properties['tpero.mvn.remote.user']
+                password = project.properties['tpero.mvn.remote.password']
+            }
+        }
+    }
+}
+
+// Alias for publishing to remote repo
+tasks.register('publishToTperoRemote') {
+    dependsOn 'publishMavenPublicationToTperoRemoteMvnRepository'
+}
+
+// Alias for publishing to local repo
+tasks.register('publishToTperoLocal') {
+    dependsOn 'publishMavenPublicationToTperoLocalMvnRepository'
 }
 
 gradlePlugin {
@@ -135,21 +156,4 @@ pitest {
     timestampedReports.set(false)
     enableDefaultIncrementalAnalysis.set(true)
     useClasspathFile.set(true)
-}
-
-artifactory {
-    contextUrl = System.properties['artifactoryUrl']
-
-    publish {
-        repository {
-            repoKey = 'default-maven-local'
-            username = System.properties['artifactoryUser']
-            password = System.properties['artifactoryApiKey']
-            maven = true
-        }
-
-        defaults {
-            publications(publishing.publications.names.toArray())
-        }
-    }
 }

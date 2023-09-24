@@ -21,25 +21,36 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - uses: actions/checkout@v2
-      
+
       - name: Set up JDK
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
-          
+
       - name: Make the gradle wrapper executable
         run: chmod +x ./gradlew
+
+      - name: Build the application
+        env:
+            tpero_mvn_remote_user: ${{ secrets.TPERO_MVN_REMOTE_USER }}
+            tpero_mvn_remote_password: ${{ secrets.TPERO_MVN_REMOTE_PASSWORD }}
+        run: ./gradlew build -Ptpero.mvn.remote.user=$tpero_mvn_remote_user -Ptpero.mvn.remote.password=$tpero_mvn_remote_password
+
+      - name: Upload artifacts
+        env:
+            tpero_mvn_remote_user: ${{ secrets.TPERO_MVN_REMOTE_USER }}
+            tpero_mvn_remote_password: ${{ secrets.TPERO_MVN_REMOTE_PASSWORD }}
+        run: ./gradlew publishToTperoRemote -Ptpero.mvn.remote.user=$tpero_mvn_remote_user -Ptpero.mvn.remote.password=$tpero_mvn_remote_password
 
       # TODO dokkaJavadoc is failing due to out of memory issues
       # TODO dokkaGfm is failing in github action due to daemon issues
       # TODO dokkaJekyll is failing in github action due to out of memory issues
-      - name: Build, upload artifacts, and generate KDoc
+      - name: Generate KDoc
         env:
-          artifactory_url: ${{ secrets.ARTIFACTORY_URL }}
-          artifactory_user: ${{ secrets.ARTIFACTORY_USER }}
-          artifactory_api_key: ${{ secrets.ARTIFACTORY_API_KEY }}
-        run: ./gradlew build artifactoryPublish dokkaHtml -DartifactoryUrl=$artifactory_url -DartifactoryUser=$artifactory_user -DartifactoryApiKey=$artifactory_api_key
-        
+            tpero_mvn_remote_user: ${{ secrets.TPERO_MVN_REMOTE_USER }}
+            tpero_mvn_remote_password: ${{ secrets.TPERO_MVN_REMOTE_PASSWORD }}
+        run: ./gradlew dokkaHtml -Ptpero.mvn.remote.user=$tpero_mvn_remote_user -Ptpero.mvn.remote.password=$tpero_mvn_remote_password
+
       - name: Deploy to Github Pages
         uses: JamesIves/github-pages-deploy-action@4.1.7
         with:
